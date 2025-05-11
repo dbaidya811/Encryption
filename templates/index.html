@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCrypt - Encryption & Decryption Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-lock"></i> SecureCrypt</h1>
+            <p>Secure Text Encryption & Decryption Tool</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <form id="crypto-form" method="POST" action="/process">
+                    <div class="form-group">
+                        <label for="text">Text to Encrypt/Decrypt:</label>
+                        <textarea id="text" name="text" placeholder="Enter your text here..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="key">Encryption Key:</label>
+                        <div class="key-input-container">
+                            <input type="password" id="key" name="key" placeholder="Enter your secret key">
+                            <button id="toggle-key" type="button">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button id="generate-key" type="button" title="Generate Random Key">
+                                <i class="fas fa-key"></i>
+                            </button>
+                        </div>
+                        <small>Remember this key! You'll need it to decrypt your message later.</small>
+                    </div>
+                    <input type="hidden" id="action" name="action" value="encrypt">
+                    <div class="button-group">
+                        <button type="button" id="encrypt-btn" class="btn primary">
+                            <i class="fas fa-lock"></i> Encrypt
+                        </button>
+                        <button type="button" id="decrypt-btn" class="btn secondary">
+                            <i class="fas fa-unlock"></i> Decrypt
+                        </button>
+                        <button type="button" id="copy-btn" class="btn" disabled>
+                            <i class="fas fa-copy"></i> Copy Result
+                        </button>
+                        <button type="button" id="clear-btn" class="btn">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                        <button type="submit" id="submit-btn" class="btn" style="display: none;">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="result-container">
+                <h3>Result:</h3>
+                <div id="result-box">
+                    <p id="result-text">Your encrypted or decrypted text will appear here...</p>
+                </div>
+            </div>
+            
+            <div id="alert" class="alert hidden"></div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 SecureCrypt. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
