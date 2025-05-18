@@ -24,7 +24,7 @@ Welcome to the **Encryption Web Model** – a secure and responsive web applicat
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/dbaidya811/encryption-web-model.git 
+   git clone https://github.com/dbaidya811/Encryption.git
 
    ```
    ## 📬 Contact with Me
